@@ -1,0 +1,46 @@
+---
+const representatives = [
+  {
+    name: "Pedro Sanchez",
+    url: "assets/pedro_sanchez.webp",
+    height: 350,
+    width: 350
+  },
+  {
+    name: "Nuñez Feijo",
+    url: "assets/nunez_feijoo.png",
+    height: 350,
+    width: 350
+  },
+  {
+    name: "Abascal",
+    url: "assets/abascal.png",
+    height: 350,
+    width: 350
+  },
+  {
+    name: "Irene Montero",
+    url: "assets/irene_montero.png",
+    height: 500,
+    width: 350
+  }
+];
+---
+
+<div>
+  {representatives.map(({name, url, height, width}) => {
+    return (
+        <img src={url} height={height} width={width}/>
+    )
+  })}
+</div>
+
+
+<style>
+    div{
+        display: inline;
+    }
+    img {
+        object-fit: cover;
+    }
+</style>

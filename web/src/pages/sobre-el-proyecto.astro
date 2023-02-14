@@ -1,0 +1,23 @@
+---
+import Container from "@components/Container.astro";
+import GradiantText from "@components/GradiantText.astro";
+import NavBar from "@components/NavBar.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="About project">
+  <Container>
+    <header>
+      <NavBar />
+      <h1><GradiantText text="ABOUT PROJECT" /></h1>
+    </header>
+  </Container>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    text-align: center;
+  }
+</style>
