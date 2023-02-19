@@ -12,7 +12,17 @@ The Azure function uses Python to first store the raw data coming from nifi, the
 The results of this analysis and the most relevant data are stored in an Azure SQL Server database and then accessed for real-time visualization in Power BI.
 
 ## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+
+#### Power Bi
+![](assets/powerbi.png)
+
+#### Nifi template
+![](assets/nifi.png)
+
+#### Azure schema 
+![](assets/azure.png)
+
+
 
 ## Usage
 To use this project, you need to have a Twitter account and an Azure account. Basic knowledge of Apache NiFi, Azure Function, Azure Data Lake Storage, Azure SQL Server, Python, Azure Text Analytics and Power BI is also required.
@@ -25,7 +35,7 @@ To use this project, you need to have a Twitter account and an Azure account. Ba
 6. Create a dashboard in Power BI and connect it to the SQL Server database to visualize the results of the sentiment analysis.
 
 ## Roadmap
-I am creating a small web site with Astro to show in real type the chart but it is not ready yet.
+I am creating a small web site with Astro to show in real time the chart but it is not ready yet.
 
 ## Contributing
 Feel free to fork the repository, make your own modifications and submit pull requests to add new features or improvements.
