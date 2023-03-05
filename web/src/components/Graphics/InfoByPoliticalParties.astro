@@ -1,0 +1,71 @@
+---
+import { getInfoByPoliticalParties } from "@service/index";
+import { politicalParties } from "@data/political_parties";
+const data = await getInfoByPoliticalParties();
+---
+
+<section>
+  {
+    data.map(
+      ({
+        total_retweets,
+        total_tweets,
+        class_name,
+        positive_tweets,
+        negative_tweets,
+        neutral_tweets,
+      }) => {
+        const el = politicalParties.find(({ name }) => name == class_name)!;
+        return el ? (
+          <div>
+            <article>
+              <a href={el.link}>
+                <img
+                  title={el.title}
+                  src={el.png}
+                  height={el.height}
+                  width={el.width}
+                />
+              </a>
+              <h3>{class_name}</h3>
+            </article>
+            <article>
+              <ul>
+                <li>Rerweets: {total_retweets}</li>
+                <li>Tweets: {total_tweets}</li>
+                <li>Positive tweets: {positive_tweets}</li>
+                <li>Neutral tweets: {neutral_tweets}</li>
+                <li>Negative tweets: {negative_tweets}</li>
+              </ul>
+            </article>
+          </div>
+        ) : null;
+      }
+    )
+  }
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    width: 100%;
+    grid-gap: 32px;
+  }
+  div {
+    border: 2px solid black;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 12px 14px 0 rgb(246, 105, 19, 0.52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  article{
+    text-align: center;
+  }
+  img {
+    object-fit: contain;
+  }
+</style>
