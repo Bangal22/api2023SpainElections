@@ -29,13 +29,22 @@ export interface PoliticalParties {
     link: string,
 }
 
+export interface InfoByPoliticalParties {
+    class_name: string,
+    total_tweets: number,
+    total_retweets: number,
+    positive_tweets: number,
+    negative_tweets: number,
+    neutral_tweets: number
+}
+
 export interface BarConfig {
-  labels: string[],
-  values: number[],
-  title?: string,
-  color?: string[] | string,
-  bColor?: string[] | string,
-  axis?: "x" | "y" | undefined
+    labels: string[],
+    values: number[],
+    title?: string,
+    color?: string[] | string,
+    bColor?: string[] | string,
+    axis?: "x" | "y" | undefined
 }
 
 export interface PieConfig {
