@@ -10,6 +10,13 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.10"
+		"@astrojs/svelte": "^2.0.2",
+		"astro": "^2.0.14",
+		"chart.js": "^4.2.1",
+		"svelte": "^3.55.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.8.4",
+		"prettier-plugin-astro": "^0.8.0"
 	}
 }
