@@ -2,10 +2,11 @@
 import Container from "@components/Container.astro";
 import RecountPoliticlParties from "@components/Graphics/RecountPoliticlParties.svelte";
 import SumRetweetsSentiment from "@components/Graphics/SumRetweetsSentiment.svelte";
-import RecountSentiment from "@components/Graphics/RecountSentiment.svelte";
+import RecountSentiment from "@components/Graphics/RecountSentiment.astro";
 import RetweetIcon from "@components/icons/RetweetIcon.astro";
 import RetweetSumPoliticalParties from "@components/Graphics/RetweetSumPoliticalParties.svelte"
-import TotalTweets from "./Graphics/TotalTweets.svelte";
+import TotalTweets from "./Graphics/TotalTweets.astro";
+import InfoByPoliticalParties from "./Graphics/InfoByPoliticalParties.astro";
 ---
 
 <section class="parent">
@@ -15,7 +16,7 @@ import TotalTweets from "./Graphics/TotalTweets.svelte";
   </article>
   <article>
     <h2>Classificacion de tweets por popularidad</h2>
-    <RecountSentiment client:visible />
+    <RecountSentiment/>
   </article>
   <article>
     <h2>Suma de retweets por populardiad <RetweetIcon /></h2>
@@ -23,12 +24,16 @@ import TotalTweets from "./Graphics/TotalTweets.svelte";
   </article>
   <article>
     <h2>Tweets totales</h2>
-    <TotalTweets client:visible/>
+    <TotalTweets/>
   </article>
   <article>
     <h2>Lorem ipsum dolor sit amet consectetur <RetweetIcon /></h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, aut. Pariatur neque cum corrupti, recusandae laboriosam vero porro molestias doloribus, voluptate, est quis exercitationem. Reprehenderit quasi quos sequi reiciendis laborum?</p>
     <RetweetSumPoliticalParties client:visible />
+  </article>
+  <article>
+    <h2>Flow</h2>
+    <InfoByPoliticalParties />
   </article>
 </section>
 
