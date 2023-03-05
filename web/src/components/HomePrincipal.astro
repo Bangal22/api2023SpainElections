@@ -1,28 +1,28 @@
 ---
 import GradiantText from "@components/GradiantText.astro";
-import NavBar from "./NavBar.astro";
-import Container from "./Container.astro";
+import Container from "@components/Container.astro";
 ---
 
-<Container>
-  <section>
-    <header>
-      <h1><GradiantText text={"ELECCIONES ESPAÑOLAS 2023"} /></h1>
-    </header>
-    <article>
+<section>
+  <header>
+    <h1><GradiantText text={"ELECCIONES ESPAÑOLAS 2023"} /></h1>
+  </header>
+  <article>
+    <Container>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia id esse
         ipsam sit neque quod tenetur quo deserunt obcaecati quos facilis, porro
         eius voluptatum illum sed ipsa, est impedit vitae.
       </p>
-      <span>( Los datos se acutlizan en tiempo real. Fuente: Twitter )</span>
-    </article>
-  </section>
-</Container>
+    </Container>
+    <span>Los datos se acutlizan en tiempo real. Fuente: Twitter</span>
+  </article>
+</section>
 
 <style>
   h1 {
-    font-size: 3.5em;
+    /* font-size: 3.5em; */
+    font-size: var(--font-size-xl);
     font-weight: 800;
     text-align: center;
   }

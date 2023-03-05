@@ -1,51 +1,18 @@
 ---
-import Container from "./Container.astro";
-
-const politicalParties = [
-  {
-    name: "PSOE",
-    png: "assets/psoe.png",
-    height: 100,
-    width: 100,
-    link: "https://www.psoe.es",
-  },
-  {
-    name: "PP",
-    png: "assets/pp.png",
-    height: 100,
-    width: 100,
-    link: "https://www.pp.es/",
-  },
-  {
-    name: "VOX",
-    png: "assets/vox.png",
-    height: 100,
-    width: 100,
-    link: "https://www.voxespana.es/",
-  },
-  {
-    name: "Unidas Podemos",
-    png: "assets/podemos.png",
-    height: 100,
-    width: 100,
-    link: "https://podemos.info/",
-  },
-];
+import { politicalParties } from '@data/political_parties'
 ---
 
-<Container>
-  <section>
-    {
-      politicalParties.map(({ name, png, height, width, link }) => {
-        return (
-          <a href={link}>
-            <img title={name} src={png} height={height} width={width} />
-          </a>
-        );
-      })
-    }
-  </section>
-</Container>
+<section>
+  {
+    politicalParties.map(({ title, png, height, width, link }) => {
+      return (
+        <a href={link}>
+          <img title={title} src={png} height={height} width={width} />
+        </a>
+      );
+    })
+  }
+</section>
 
 <style>
   img {

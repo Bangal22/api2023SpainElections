@@ -1,4 +1,5 @@
 ---
+import Container from '@components/Container.astro';
 export interface Props {
   title: string;
 }
@@ -16,7 +17,9 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <Container>
+      <slot />
+    </Container>
   </body>
 </html>
 <style is:global>
@@ -28,12 +31,13 @@ const { title } = Astro.props;
       #da62c4 30%,
       white 60%
     );
+    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+    --font-size-xl: clamp(2.44rem, 2.48vw + 1.45rem, 3.45rem);
   }
   html {
     font-family: system-ui, sans-serif;
     background-color: #ffffffec;
-    /* background-color: rgb(239, 232, 245); */
-    /* background: radial-gradient(circle, rgb(253, 250, 247) 0%, rgb(239, 228, 249) 100%); */
+    background-image: url(assets/background.png), linear-gradient(-70deg, #ffffffec 0%, #ffffffec 100%);
   }
   code {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
