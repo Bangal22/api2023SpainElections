@@ -1,0 +1,33 @@
+---
+import LittleCard from "@components/Graphics/LittleCard.astro";
+import { getRecountSentiment } from "@service/index";
+import { sentimentTextColor } from "@utils/index";
+const data = await getRecountSentiment();
+---
+
+<section>
+  {
+    data.map(({ sentiment_type, recount }) => {
+      return (
+        <LittleCard
+          background={"transparent"}
+          color={sentimentTextColor[sentiment_type]}
+          width={33.333333}>
+          {recount}
+          <span> {sentiment_type}</span>
+        </LittleCard>
+      );
+    })
+  }
+</section>
+
+<style>
+  span {
+    font-size: 0.4em;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+  }
+</style>
