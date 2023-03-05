@@ -1,0 +1,23 @@
+---
+import { getTotalTweets } from "@service/index";
+import LittleCard from "@components/Graphics/LittleCard.astro";
+const { total_tweets } = await getTotalTweets();
+---
+
+<section>
+  <LittleCard background={"transparent"} color={"black"} width={100}>
+    {total_tweets}
+    <span>Tweets</span>
+  </LittleCard>
+</section>
+
+<style>
+  span {
+    font-size: 0.4em;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+  }
+</style>
