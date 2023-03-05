@@ -1,12 +1,11 @@
 <script lang="ts">
   import chartjs from "chart.js/auto";
   import Loader from "@components/Loader.svelte";
-  import type { SumRetweetsSentiment } from "@model/index";
+  import type { PieConfig, SumRetweetsSentiment } from "@model/index";
   import { onMount } from "svelte";
   import { getSumRetweetsSentiment } from "@service/sum_retweets_sentiment";
   import { pieConfiguration } from "@utils/index";
   import { sentimentColor } from "@utils/index";
-  import GraphCard from "./GraphCard.svelte";
 
   let chartCanvas: HTMLCanvasElement;
   let loading = true;
@@ -16,12 +15,24 @@
     if (!ctx) return;
 
     const data: SumRetweetsSentiment[] = await getSumRetweetsSentiment();
-    const labels = data.map(({ sentiment_type }) => sentiment_type);
-    const values = data.map(({ recount }) => recount);
-    const color = data.map(({ sentiment_type }) => sentimentColor[sentiment_type]);
-    // const color = ["#E66C37", "#12239E", "#118DFF"];
-    const bColor = "#0000f";
-    const config = pieConfiguration({ labels, values, color, bColor });
+    
+    const template: PieConfig = data.reduce(
+      (acc: any, { sentiment_type, recount }) => {
+        acc.labels.push(sentiment_type);
+        acc.values.push(recount);
+        acc.color.push(sentimentColor[sentiment_type]);
+        acc.bColor = "#0000f"
+        return acc;
+      },
+      {
+        labels: [],
+        values: [],
+        color: [],
+        bColor : '',
+      }
+      );
+      
+    const config = pieConfiguration(template);
     new chartjs(ctx, config);
     loading = false;
   });
