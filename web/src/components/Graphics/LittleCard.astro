@@ -1,0 +1,28 @@
+---
+const { background, color, width } = Astro.props;
+const astricleStyle = `background-color: ${background}; width:${width}%`;
+const divStyle = `color: ${color}`;
+---
+
+<article style={astricleStyle}>
+  <div style={divStyle}>
+    <slot />
+  </div>
+</article>
+
+<style>
+  div {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000000;
+  }
+  article {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 1em;
+    border: 2px solid black;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    box-shadow: 12px 14px 0 rgba(0, 0, 0, 0.201);
+    border-radius: 8px;
+  }
+</style>
