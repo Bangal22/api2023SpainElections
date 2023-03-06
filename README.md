@@ -2,7 +2,28 @@
 Sentiment Analysis Project on Spanish Politics
 
 ## Description
-This project aims to track in real time people's opinions and sentiment about Spanish politics. For this, a combination of technologies and tools have been used, such as Apache NiFi, Azure Function, Azure Data Lake Storage, Azure SQL Server, Python, Azure Text Analytics, the Twitter API and Power BI.
+This project aims to track in real time people's opinions and sentiment about Spanish politics. 
+
+## Technologies
+### Cloud:
+        1. Apache NiFi
+        2. Azure Function
+        3. Azure Data Lake
+        4. Azure Storage
+        5. Azure SQL Server
+        6. Azure Text Analytics
+        7. Docker
+        8. Twitter API
+        9. Power BI.
+### Frontend:
+        1. Astro
+        2. Svelte (islands)
+        3. Chart.js
+        4. Vercel
+### Backend: 
+        1. Node.js 
+        2. Express.js
+        3. Railway.app
 
 ## How it works
 The project starts with the collection of tweets through the Twitter API using Apache NiFi. A data stream has been configured that extracts tweets containing keywords related to Spanish politics, more specifically the names of the most relevant political parties (PSOE, VOX, PP and Unidas Podemos) and sends them to an Azure function.
@@ -10,6 +31,8 @@ The project starts with the collection of tweets through the Twitter API using A
 The Azure function uses Python to first store the raw data coming from nifi, then process the data to clean extract the most relevant information. Then, Azure Text Analytics is used to analyze the sentiment of each tweet and classify it as positive, negative or neutral.
 
 The results of this analysis and the most relevant data are stored in an Azure SQL Server database and then accessed for real-time visualization in Power BI.
+
+For web visualization a simple page has been created with Astro and an api made with Node.js.
 
 ## Visuals
 
@@ -21,8 +44,6 @@ The results of this analysis and the most relevant data are stored in an Azure S
 
 #### Azure schema 
 ![](assets/azure.png)
-
-
 
 ## Usage
 To use this project, you need to have a Twitter account and an Azure account. Basic knowledge of Apache NiFi, Azure Function, Azure Data Lake Storage, Azure SQL Server, Python, Azure Text Analytics and Power BI is also required.
